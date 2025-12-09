@@ -1,0 +1,69 @@
+<!-- Code was manually adjusted based on Chat GPT generated js code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Fan Dashboard (Strict Mode)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>IoT Fan Control</h1>
+    <p>Target Device: <strong><span id="target-ip">Checking...</span></strong></p>
+    <p>Status: <span id="status-text" class="status-disconnected">CONNECTING...</span></p>
+
+    <!-- Sensors -->
+    <section>
+        <h2>Readings</h2>
+        <p>
+            <strong>Temperature:</strong> 
+            <span id="val-temp">--</span> <span id="lbl-unit-temp">°C</span>
+            <button class="unit-btn" onclick="toggleUnit()" id="btn-unit">Switch to °F</button>
+        </p>
+        <p><strong>Humidity:</strong> <span id="val-hum">--</span> %</p>
+        <p><strong>Occupancy:</strong> <span id="val-presence">--</span></p>
+    </section>
+
+    <!-- CONTROLS SECTION -->
+    <section>
+        <h2>Controls</h2>
+        
+        <!-- Fan -->
+        <div class="control-group">
+            <strong>Fan:</strong> <span id="fan-status-text" class="off">OFF</span>
+            <button id="btn-fan" onclick="toggleFan()">Toggle Fan</button>
+        </div>
+
+        <!-- Light -->
+        <div class="control-group">
+            <strong>Light:</strong> <span id="light-status-text" class="off">OFF</span>
+            <button id="btn-light" onclick="toggleLight()">Toggle Light</button>
+        </div>
+
+        <!-- Mode -->
+        <div class="control-group">
+            <strong>System Mode:</strong>
+            <label>
+                <input type="checkbox" id="mode-toggle" onchange="toggleMode()"> Auto Mode (Check to enable)
+            </label>
+        </div>
+
+        <!-- Threshold -->
+        <div class="control-group">
+            <label>Auto-Start Temp Threshold (<span id="lbl-unit-input">°C</span>):</label>
+            <input type="number" id="input-threshold" step="0.5" placeholder="23.0">
+            <button onclick="updateThreshold()" id="btn-save-threshold">Save</button>
+        </div>
+    </section>
+
+    <!-- Chart -->
+    <section>
+        <h2>History</h2>
+        <canvas id="envChart"></canvas>
+    </section>
+
+     <script src="script.js"></script>
+</body>
+</html>
