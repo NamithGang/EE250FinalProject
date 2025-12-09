@@ -17,7 +17,7 @@ Users can interact with the system via a **Web Dashboard**, a physical **IR Remo
 
 ## System Architecture
 
-<img src="https://raw.githubusercontent.com/NamithGang/EE250FinalProject/refs/heads/main/overall_diagram.png" width="300">
+<img src="https://raw.githubusercontent.com/NamithGang/EE250FinalProject/refs/heads/main/overall_diagram.png" width="900">
 
 ### Hardware Stack
 * **Controller:** Raspberry Pi 4 (Control and Logic)
